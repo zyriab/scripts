@@ -10,11 +10,9 @@ brew_install() {
     fi
 }
 
-<<<<<<< Updated upstream
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-=======
 mv Colemak\ DH.bundle /Library/Keyboard\ Layouts
->>>>>>> Stashed changes
+
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew tap cask/versions
 
