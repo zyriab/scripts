@@ -1,8 +1,13 @@
 #!/bin/bash
 
+if [ -z "${BASH_VERSION:-}" ]
+then
+  abort "Bash is required to interpret this script."
+fi
+
 # @see https://apple.stackexchange.com/a/425118
 brew_install() {
-    echo "\nInstalling $1"
+    echo "Installing $1"
     if brew list $1 &>/dev/null; then
         echo "${1} is already installed"
     else
@@ -10,10 +15,23 @@ brew_install() {
     fi
 }
 
-mv Colemak\ DH.bundle /Library/Keyboard\ Layouts
+### Keeb layout
+curl -L https://github.com/ColemakMods/mod-dh/archive/refs/heads/master.zip --output keeb-layout.zip
+unzip keeb-layout.zip
+sudo mv mod-dh-master/macOS/Colemak\ DH.bundle /Library/Keyboard\ Layouts
 
+echo "Colemak-DH ISO installed. You must restart and add it to the input sources. :)"
+
+### 0h-my-zsh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+### Brew
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+### General env
 brew tap cask/versions
 
 brew_install "firefox" "--cask"
