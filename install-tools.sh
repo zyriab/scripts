@@ -10,7 +10,11 @@ brew_install() {
     fi
 }
 
+<<<<<<< Updated upstream
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+=======
+mv Colemak\ DH.bundle /Library/Keyboard\ Layouts
+>>>>>>> Stashed changes
 
 brew tap cask/versions
 
@@ -33,6 +37,7 @@ brew_install "flux" "--cask"
 brew_install "notion" "--cask"
 brew_install "slack" "--cask"
 brew_install "1password" "--cask"
+brew_install "discord" "--cask"
 
 ### AVR
 brew tap osx-cross/avr
