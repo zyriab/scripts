@@ -54,9 +54,19 @@ brew_install "notion" "--cask"
 brew_install "slack" "--cask"
 brew_install "1password" "--cask"
 brew_install "discord" "--cask"
+brew_install "coteditor" "--cask"
+brew_install "direnv"
 
-### AVR
+### Shippr (TODO: move this somewhere else after repo cloning)
+
+echo "eval \"$(direnv hook zsh)\"" >> ~/.zshrc
+#cd ~/Work/shippr
+#direnv allow
+#cd ~
+
+### AVR + Embedded
 brew tap osx-cross/avr
 
 brew_install "avr-gcc"
 brew_install "avrdude"
+brew_install "arduino-cli"
