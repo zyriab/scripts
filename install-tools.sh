@@ -70,3 +70,7 @@ brew tap osx-cross/avr
 brew_install "avr-gcc"
 brew_install "avrdude"
 brew_install "arduino-cli"
+
+### Fun stuff
+
+brew_install "steam" "--cask"
