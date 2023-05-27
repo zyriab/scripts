@@ -56,6 +56,7 @@ brew_install "1password" "--cask"
 brew_install "discord" "--cask"
 brew_install "coteditor" "--cask"
 brew_install "direnv"
+brew_install "gh"
 
 ### Shippr (TODO: move this somewhere else after repo cloning)
 

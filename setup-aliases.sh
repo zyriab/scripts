@@ -1,5 +1,5 @@
-echo "alias spr='cd ~/Work/shippr'
-alias cap='cd ~/Work/shippr/projects/carrier-app'" >> ~/.bash_aliases
+echo "alias spr='cd ~/Developer/shippr'
+alias cap='cd ~/Developer/shippr/projects/carrier-app'" >> ~/.bash_aliases
 
 if [ -f ~/.zshrc ]; then
 echo "if [ -f ~/.bash_aliases ]; then
