@@ -42,8 +42,6 @@ brew_install "visual-studio-code" "--cask"
 brew_install "postman" "--cask"
 brew_install "github" "--cask"
 brew_install "docker" "--cask"
-brew_install "linear-linear" "--cask"
-brew_install "iterm2" "--cask"
 brew_install "figma" "--cask"
 brew_install "spotify" "--cask"
 brew_install "karabiner-elements" "--cask"
@@ -51,19 +49,10 @@ brew_install "rectangle" "--cask"
 brew_install "android-file-transfer" "--cask"
 brew_install "flux" "--cask"
 brew_install "notion" "--cask"
-brew_install "slack" "--cask"
 brew_install "1password" "--cask"
 brew_install "discord" "--cask"
 brew_install "coteditor" "--cask"
-brew_install "direnv"
 brew_install "gh"
-
-### Shippr (TODO: move this somewhere else after repo cloning)
-
-echo "eval \"$(direnv hook zsh)\"" >> ~/.zshrc
-#cd ~/Work/shippr
-#direnv allow
-#cd ~
 
 ### AVR + Embedded
 brew tap osx-cross/avr
