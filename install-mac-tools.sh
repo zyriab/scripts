@@ -32,7 +32,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/in
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ### General env
-brew tap cask/versions
+brew tap homebrew/cask-versions
 
 brew_install "firefox" "--cask"
 brew_install "firefox-developer-edition" "--cask"
@@ -53,6 +53,7 @@ brew_install "1password" "--cask"
 brew_install "discord" "--cask"
 brew_install "coteditor" "--cask"
 brew_install "gh"
+brew_install "neovim"
 
 ### AVR + Embedded
 brew tap osx-cross/avr
