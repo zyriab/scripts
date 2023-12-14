@@ -61,9 +61,16 @@ brew_install "go"
 brew_install "lazygit"
 brew_install "zsh-autocomplete"
 brew_install "zsh-autosuggestions"
+brew_install "zsh-syntax-highlighting"
 
 ### Finishing Colemak setup
 mkdir -p $HOME/.config/karabiner && cp ./karabiner/* $HOME/.config/karabiner 
+
+### ZSH goodies
+echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+echo "source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+echo "source $(brew --prefix)/share/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
 
 ### AVR + Embedded
 brew tap osx-cross/avr
