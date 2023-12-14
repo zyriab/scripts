@@ -22,8 +22,6 @@ sudo mv mod-dh-master/macOS/Colemak\ DH.bundle /Library/Keyboard\ Layouts
 
 echo "Colemak-DH ISO installed. You must restart and add it to the input sources. :)"
 
-### 0h-my-zsh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ### Brew
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -54,6 +52,16 @@ brew_install "discord" "--cask"
 brew_install "coteditor" "--cask"
 brew_install "gh"
 brew_install "neovim"
+brew_install "wezterm" "--cask"
+brew_install "node"
+brew_install "wget"
+brew_install "ripgrep"
+brew_install "fd"
+brew_install "go"
+brew_install "lazygit"
+
+### Finishing Colemak setup
+mkdir -p $HOME/.config/karabiner && cp ./karabiner/* $HOME/.config/karabiner 
 
 ### AVR + Embedded
 brew tap osx-cross/avr
@@ -63,5 +71,7 @@ brew_install "avrdude"
 brew_install "arduino-cli"
 
 ### Fun stuff
-
 brew_install "steam" "--cask"
+
+### 0h-my-zsh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
