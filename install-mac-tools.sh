@@ -59,6 +59,8 @@ brew_install "ripgrep"
 brew_install "fd"
 brew_install "go"
 brew_install "lazygit"
+brew_install "zsh-autocomplete"
+brew_install "zsh-autosuggestions"
 
 ### Finishing Colemak setup
 mkdir -p $HOME/.config/karabiner && cp ./karabiner/* $HOME/.config/karabiner 
