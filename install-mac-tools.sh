@@ -62,14 +62,16 @@ brew_install "lazygit"
 brew_install "zsh-autocomplete"
 brew_install "zsh-autosuggestions"
 brew_install "zsh-syntax-highlighting"
+brew_install "golangci-lint"
+brew_install "clang-format"
+brew_install "keepassxc" "--cask"
+brew_install "imagemagick"
+
+go install github.com/go-delve/delve/cmd/dlv@lates
 
 ### Finishing Colemak setup
 mkdir -p $HOME/.config/karabiner && cp ./karabiner/* $HOME/.config/karabiner 
 
-### ZSH goodies
-echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-echo "source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-echo "source $(brew --prefix)/share/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 
 ### AVR + Embedded
@@ -84,3 +86,7 @@ brew_install "steam" "--cask"
 
 ### 0h-my-zsh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+### ZSH goodies
+echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+echo "source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+echo "source $(brew --prefix)/share/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
