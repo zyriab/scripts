@@ -66,13 +66,20 @@ brew_install "golangci-lint"
 brew_install "clang-format"
 brew_install "keepassxc" "--cask"
 brew_install "imagemagick"
+brew_install "stylua"
 
 go install github.com/go-delve/delve/cmd/dlv@lates
 
 ### Finishing Colemak setup
 mkdir -p $HOME/.config/karabiner && cp ./karabiner/* $HOME/.config/karabiner 
 
+### Adding undercurl support for WezTerm + Neovim
+tempfile=$(mktemp) \
+  && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
+  && tic -x -o ~/.terminfo $tempfile \
+  && rm $tempfile
 
+export TERM=wezterm
 
 ### AVR + Embedded
 brew tap osx-cross/avr
