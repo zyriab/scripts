@@ -9,10 +9,20 @@ fi
 brew_install() {
     echo "Installing $1"
     if brew list $1 &>/dev/null; then
-        echo "${1} is already installed"
+        echo "$1 is already installed"
     else
-        brew install $2 $1 && echo "$1 is installed"
+        brew install "$2" "$1" && echo "$1 is installed"
     fi
+}
+
+add_to_zshrc() {
+    local zshrc_path=${ZDOTDIR:-$HOME}/.zshrc
+
+    if [ -n $2 ]; then
+        echo "$2" >> $zshrc_path
+    fi
+
+    echo "$1" >> $zshrc_path
 }
 
 ### Keeb layout
@@ -46,12 +56,11 @@ brew_install "karabiner-elements" "--cask"
 brew_install "rectangle" "--cask"
 brew_install "android-file-transfer" "--cask"
 brew_install "flux" "--cask"
-brew_install "notion" "--cask"
-brew_install "1password" "--cask"
+# brew_install "notion" "--cask"
+# brew_install "1password" "--cask"
 brew_install "discord" "--cask"
 brew_install "coteditor" "--cask"
 brew_install "gh"
-brew_install "neovim"
 brew_install "wezterm" "--cask"
 brew_install "node"
 brew_install "wget"
@@ -66,8 +75,16 @@ brew_install "golangci-lint"
 brew_install "clang-format"
 brew_install "keepassxc" "--cask"
 brew_install "imagemagick"
-brew_install "stylua"
 
+### Rust (for `cargo`)
+curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+cargo install stylua
+cargo install bob-nvim
+
+bob install stable # or use `nightly if stable < 0.10.0`
+
+### Go DAP
 go install github.com/go-delve/delve/cmd/dlv@lates
 
 ### Finishing Colemak setup
@@ -79,7 +96,13 @@ tempfile=$(mktemp) \
   && tic -x -o ~/.terminfo $tempfile \
   && rm $tempfile
 
-export TERM=wezterm
+add_to_zshrc "export EDITOR=nvim"
+add_to_zshrc "export TERM=wezterm"
+add_to_zshrc 'export BOB_CONFIG="$HOME/.config/bob/config.toml"' "### Neovim w/ Bob as version manager"
+add_to_zshrc 'export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"'
+add_to_zshrc 'export GOPATH="$HOME/go"' "### Go"
+add_to_zshrc 'export PATH=$PATH:$GOPATH/bin'
+add_to_zshrc 'export PATH=$PATH:$HOME/.cargo/bin' "### Rust"
 
 ### AVR + Embedded
 brew tap osx-cross/avr
@@ -93,7 +116,19 @@ brew_install "steam" "--cask"
 
 ### 0h-my-zsh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 ### ZSH goodies
-echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-echo "source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-echo "source $(brew --prefix)/share/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+# FIXME: need to see if it's needed on Linux + double-check everything is there if it's in fact needed
+# add_to_zshrc "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# add_to_zshrc "source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+# add_to_zshrc "source $(brew --prefix)/share/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+### Adding .bash_aliases
+add_to_zshrc "if [ -f $HOME/.bash_aliases ]; then" "### Adding .bash_aliases"
+add_to_zshrc ". $HOME/.bash_aliases"
+add_to_zshrc "fi"
+
+### Custom scripts runs
+add_to_zshrc "if [ -f $HOME/scripts/scripts.sh ]; then" "### Scripts autorun"
+add_to_zshrc ". $HOME/scripts/scripts.sh"
+add_to_zshrc "fi"
