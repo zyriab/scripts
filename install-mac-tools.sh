@@ -75,6 +75,8 @@ brew_install "golangci-lint"
 brew_install "clang-format"
 brew_install "keepassxc" "--cask"
 brew_install "imagemagick"
+brew_install "lua"
+brew_install "luarocks"
 
 ### Rust (for `cargo`)
 curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -86,6 +88,9 @@ bob install stable # or use `nightly if stable < 0.10.0`
 
 ### Go DAP
 go install github.com/go-delve/delve/cmd/dlv@lates
+
+### Luarocks testing framework
+luarocks install --local busted
 
 ### Finishing Colemak setup
 mkdir -p $HOME/.config/karabiner && cp ./karabiner/* $HOME/.config/karabiner 
@@ -101,8 +106,9 @@ add_to_zshrc "export TERM=wezterm"
 add_to_zshrc 'export BOB_CONFIG="$HOME/.config/bob/config.toml"' "### Neovim w/ Bob as version manager"
 add_to_zshrc 'export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"'
 add_to_zshrc 'export GOPATH="$HOME/go"' "### Go"
-add_to_zshrc 'export PATH=$PATH:$GOPATH/bin'
-add_to_zshrc 'export PATH=$PATH:$HOME/.cargo/bin' "### Rust"
+add_to_zshrc 'export PATH="$PATH:$GOPATH/bin"'
+add_to_zshrc 'export PATH="$PATH:$HOME/.cargo/bin"' "### Rust"
+add_to_zshrc 'export PATH="$PATH:$HOME/.luarocks/bin"' "### Luarocks"
 
 ### AVR + Embedded
 brew tap osx-cross/avr
