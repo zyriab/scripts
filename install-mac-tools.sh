@@ -77,6 +77,11 @@ brew_install "keepassxc" "--cask"
 brew_install "imagemagick"
 brew_install "lua"
 brew_install "luarocks"
+brew_install "fzf"
+brew_install "zoxide"
+
+### Finishing fzf install
+$(brew --prefix)/opt/fzf/install
 
 ### Rust (for `cargo`)
 curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -109,6 +114,7 @@ add_to_zshrc 'export GOPATH="$HOME/go"' "### Go"
 add_to_zshrc 'export PATH="$PATH:$GOPATH/bin"'
 add_to_zshrc 'export PATH="$PATH:$HOME/.cargo/bin"' "### Rust"
 add_to_zshrc 'export PATH="$PATH:$HOME/.luarocks/bin"' "### Luarocks"
+add_to_zshrc 'eval "$(zoxide init zsh)"' "### zoxide"
 
 ### AVR + Embedded
 brew tap osx-cross/avr
