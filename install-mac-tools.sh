@@ -79,6 +79,7 @@ brew_install "lua"
 brew_install "luarocks"
 brew_install "fzf"
 brew_install "zoxide"
+brew_install "act"
 
 ### Finishing fzf install
 $(brew --prefix)/opt/fzf/install
@@ -115,6 +116,8 @@ add_to_zshrc 'export PATH="$PATH:$GOPATH/bin"'
 add_to_zshrc 'export PATH="$PATH:$HOME/.cargo/bin"' "### Rust"
 add_to_zshrc 'export PATH="$PATH:$HOME/.luarocks/bin"' "### Luarocks"
 add_to_zshrc 'eval "$(zoxide init zsh)"' "### zoxide"
+add_to_zshrc "export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#6e7681,hl:#ffffff --color=fg+:#c9d1d9,bg+:#1e4273,hl+:#fdac54 --color=info:#d29922,prompt:#58a6ff,pointer:#a371f7 --color=marker:#ec8e2c,spinner:#6e7681,header:#343941'" "### fzf theme"
+add_to_zshrc 'export BAT_THEME="github_dark_colorblind_custom"' "### bat theme"
 
 ### AVR + Embedded
 brew tap osx-cross/avr
