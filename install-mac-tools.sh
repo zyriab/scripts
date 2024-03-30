@@ -80,6 +80,7 @@ brew_install "luarocks"
 brew_install "fzf"
 brew_install "zoxide"
 brew_install "act"
+brew_install "qmk/qmk/qmk"
 
 ### Finishing fzf install
 $(brew --prefix)/opt/fzf/install
