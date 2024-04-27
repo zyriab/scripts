@@ -81,6 +81,7 @@ brew_install "fzf"
 brew_install "zoxide"
 brew_install "act"
 brew_install "qmk/qmk/qmk"
+brew_install "ngrok/ngrok/ngrok"
 
 ### Finishing fzf install
 $(brew --prefix)/opt/fzf/install
