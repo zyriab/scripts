@@ -82,6 +82,7 @@ brew_install "zoxide"
 brew_install "act"
 brew_install "qmk/qmk/qmk"
 brew_install "ngrok/ngrok/ngrok"
+brew_install "slack" "--cask"
 
 ### Finishing fzf install
 $(brew --prefix)/opt/fzf/install
@@ -96,6 +97,10 @@ bob install stable # or use `nightly if stable < 0.10.0`
 
 ### Go DAP
 go install github.com/go-delve/delve/cmd/dlv@lates
+
+### Go tools
+go install github.com/a-h/templ/cmd/templ@latest
+go install github.com/air-verse/air@latest
 
 ### Luarocks testing framework
 luarocks install --local busted
