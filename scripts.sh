@@ -5,3 +5,4 @@ DIR_PATH="$(dirname $THIS)"
 
 source "$DIR_PATH/pidof.sh"
 source "$DIR_PATH/yazi-wrapper.sh"
+source "$DIR_PATH/wezterm-workspace-rename.sh"
