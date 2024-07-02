@@ -68,9 +68,6 @@ brew_install "ripgrep"
 brew_install "fd"
 brew_install "go"
 brew_install "lazygit"
-brew_install "zsh-autocomplete"
-brew_install "zsh-autosuggestions"
-brew_install "zsh-syntax-highlighting"
 brew_install "golangci-lint"
 brew_install "clang-format"
 brew_install "keepassxc" "--cask"
@@ -83,6 +80,18 @@ brew_install "act"
 brew_install "qmk/qmk/qmk"
 brew_install "ngrok/ngrok/ngrok"
 brew_install "slack" "--cask"
+
+### yazi
+brew_install "yazi"
+brew_install "ffmpegthumbnailer"
+brew_install "unar"
+brew_install "jq"
+brew_install "poppler"
+brew_install "fd"
+brew_install "ripgrep"
+brew_install "fzf"
+brew_install "zoxide"
+brew_install "font-symbols-only-nerd-font"
 
 ### Finishing fzf install
 $(brew --prefix)/opt/fzf/install
@@ -136,14 +145,14 @@ brew_install "arduino-cli"
 ### Fun stuff
 brew_install "steam" "--cask"
 
-### 0h-my-zsh
+### Oh-my-zsh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ### ZSH goodies
-# FIXME: need to see if it's needed on Linux + double-check everything is there if it's in fact needed
-# add_to_zshrc "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-# add_to_zshrc "source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-# add_to_zshrc "source $(brew --prefix)/share/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vi-mode
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 ### Adding .bash_aliases
 add_to_zshrc "if [ -f $HOME/.bash_aliases ]; then" "### Adding .bash_aliases"
