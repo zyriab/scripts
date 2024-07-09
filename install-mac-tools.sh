@@ -80,6 +80,7 @@ brew_install "act"
 brew_install "qmk/qmk/qmk"
 brew_install "ngrok/ngrok/ngrok"
 brew_install "slack" "--cask"
+brew_install "pipx"
 
 ### yazi
 brew_install "yazi"
@@ -113,6 +114,12 @@ go install github.com/air-verse/air@latest
 
 ### Luarocks testing framework
 luarocks install --local busted
+
+### Harlequin SQL IDE
+pipx install harlequin[postgres]
+## if fail
+# pipx inject harlequin harlequin-postgres
+pipx ensurepath
 
 ### Finishing Colemak setup
 mkdir -p $HOME/.config/karabiner && cp ./karabiner/* $HOME/.config/karabiner 
