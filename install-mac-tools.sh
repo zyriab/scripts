@@ -81,6 +81,7 @@ brew_install "qmk/qmk/qmk"
 brew_install "ngrok/ngrok/ngrok"
 brew_install "slack" "--cask"
 brew_install "pipx"
+brew_install "btop"
 
 ### yazi
 brew_install "yazi"
@@ -111,6 +112,7 @@ go install github.com/go-delve/delve/cmd/dlv@lates
 ### Go tools
 go install github.com/a-h/templ/cmd/templ@latest
 go install github.com/air-verse/air@latest
+go install honnef.co/go/tools/cmd/staticcheck@latest
 
 ### Luarocks testing framework
 luarocks install --local busted
