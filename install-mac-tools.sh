@@ -114,6 +114,9 @@ go install github.com/a-h/templ/cmd/templ@latest
 go install github.com/air-verse/air@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 
+### Prettierd
+npm install -g @fsouza/prettierd
+
 ### Luarocks testing framework
 luarocks install --local busted
 
